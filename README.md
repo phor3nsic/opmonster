@@ -9,3 +9,5 @@
  ```
 
 ### Remote code execution in Opmon
+
+[More info](https://medium.com/@ph0rensic/three-cves-on-opmon-3ca775a262f5)
