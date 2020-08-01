@@ -13,4 +13,4 @@
 [More info](https://phor3nsic.gitbook.io/aboutme/articles/three-cves-on-opmon)
 
 
-###### tags: `CVE-2020-8636` `exploit` `opmon` `RCE` `phor3nsic`
+###### tags: `CVE-2020-8636` `exploit` `opmon` `opmonster` `RCE` `phor3nsic`
